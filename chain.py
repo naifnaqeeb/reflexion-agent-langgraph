@@ -37,7 +37,7 @@ Current time: {time}
 )
 
 first_responder_prompt_template = actor_prompt_template.partial(
-    first_instruction="Provide a detailed ~250 word answer."
+    first_instruction="Provide a detailed ~120 word answer."
 )
 
 first_responder = first_responder_prompt_template | llm.bind_tools(
@@ -50,7 +50,7 @@ revise_instructions = """Revise your previous answer using the new information.
         - Add a "References" section to the bottom of your answer (which does not count towards the word limit). In form of:
             - [1] https://example.com
             - [2] https://example.com
-    - You should use the previous critique to remove superfluous information from your answer and make SURE it is not more than 250 words.
+    - You should use the previous critique to remove superfluous information from your answer and make SURE it is not more than 120 words.
 """
 
 revisor = actor_prompt_template.partial(
